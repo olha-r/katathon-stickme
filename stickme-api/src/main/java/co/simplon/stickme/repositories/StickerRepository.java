@@ -5,11 +5,14 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import co.simplon.stickme.dtos.AllStickersView;
+import co.simplon.stickme.dtos.EditAllStickers;
 import co.simplon.stickme.entities.Sticker;
 
 public interface StickerRepository
 	extends JpaRepository<Sticker, Long> {
 
-    Collection<AllStickersView> findAllProjectedBy();
+    Collection<AllStickersView> findAllStickersProjectedBy();
+
+    Collection<EditAllStickers> findAllStickersForEditProjectedBy();
 
 }

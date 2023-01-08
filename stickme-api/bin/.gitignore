@@ -1,0 +1,12 @@
+.DS_Store
+
+target/
+
+### Eclipse ###
+.classpath
+.project
+.settings
+stickme-api/src/main/resources/application.properties
+
+### VS Code ###
+.vscode/

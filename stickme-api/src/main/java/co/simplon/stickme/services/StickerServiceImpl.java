@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import co.simplon.stickme.dtos.AllStickersView;
+import co.simplon.stickme.dtos.EditAllStickers;
 import co.simplon.stickme.dtos.StickerCreateDto;
 import co.simplon.stickme.entities.Aspect;
 import co.simplon.stickme.entities.Size;
@@ -58,7 +59,13 @@ public class StickerServiceImpl implements StickerService {
     @Override
     public Collection<AllStickersView> getAll() {
 
-	return stickers.findAllProjectedBy();
+	return stickers.findAllStickersProjectedBy();
+    }
+
+    @Override
+    public Collection<EditAllStickers> getAllForEdit() {
+
+	return stickers.findAllStickersForEditProjectedBy();
     }
 
 }

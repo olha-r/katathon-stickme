@@ -1,10 +1,8 @@
 <script>
 export default {
-
     data() {
         return {
             stickersList: [],
-
         }
     },
 
@@ -20,15 +18,10 @@ export default {
         this.loadAllStickers();
     }
 }
-
-
 </script>
 
 <template>
-
-
-
-    <div class="countainer mx-3 my-3">
+    <div class="countainer m-3">
         <h1>Welcome</h1>
         <div class="row row-cols-2 row-cols-md-5 g-4">
             <div v-for="element in stickersList" class="col">
@@ -43,6 +36,4 @@ export default {
 
         </div>
     </div>
-
-
 </template>

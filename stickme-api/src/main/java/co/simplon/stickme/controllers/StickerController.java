@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.stickme.dtos.AllStickersView;
+import co.simplon.stickme.dtos.EditAllStickers;
 import co.simplon.stickme.dtos.StickerCreateDto;
 import co.simplon.stickme.services.StickerService;
 
@@ -36,9 +37,14 @@ public class StickerController {
 	service.create(inputs);
     }
 
-    @GetMapping
+    @GetMapping()
     public Collection<AllStickersView> getAll() {
 	return service.getAll();
+    }
+
+    @GetMapping("/edit-all")
+    public Collection<EditAllStickers> getAllForEdit() {
+	return service.getAllForEdit();
     }
 
 }
