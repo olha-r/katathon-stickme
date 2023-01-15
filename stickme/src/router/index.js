@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import CreateSticker from '../components/CreateSticker.vue'
 import Home from '../components/Home.vue'
+import CreateSticker from '../components/CreateSticker.vue'
+import StickerDetails from '../components/StickerDetails.vue'
 import EditAllStickers from '../components/EditAllStickers.vue'
+import UpdateSticker from '../components/UpdateSticker.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,9 +19,19 @@ const router = createRouter({
       component: CreateSticker
     },
     {
+      path: '/sticker/:id',
+      name: 'sticker',
+      component: StickerDetails
+    },
+    {
       path: '/edit-stickers',
       name: 'editAllStickers',
       component: EditAllStickers
+    },
+    {
+      path: '/:id/update',
+      name: 'updateSticker',
+      component: UpdateSticker
     }
 
   ]
