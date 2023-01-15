@@ -29,7 +29,7 @@ const router = createRouter({
       component: EditAllStickers
     },
     {
-      path: '/:id/update',
+      path: '/sticker/update/:id',
       name: 'updateSticker',
       component: UpdateSticker
     }

@@ -15,7 +15,7 @@ export default {
         }
     },
     methods: {
-        async loadStickers() {
+        async loadSticker() {
             const response = await fetch(`http://localhost:8080/stickers/${this.id}`);
             const elements = await response.json();
             this.sticker = elements;
@@ -24,7 +24,7 @@ export default {
     },
     mounted() {
         this.id = this.$route.params.id;
-        this.loadStickers();
+        this.loadSticker();
     }
 }
 </script>
