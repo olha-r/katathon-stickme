@@ -28,7 +28,8 @@ export default {
                 <div class="card">
                     <img :src="element.imageUrl" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">{{ element.name }}</h5>
+                        <h5 class="card-title">
+                            {{ element.name }}</h5>
                         <p class="card-text">{{ element.price }}</p>
                     </div>
                 </div>

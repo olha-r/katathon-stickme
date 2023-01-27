@@ -107,23 +107,23 @@ export default {
                     <div class="row">
                         <div class="form-group col-12 col-md-4">
                             <label for="sizeId">Size</label>
-                            <select v-model="inputs.size.id" name="sizeId" id="sizeId" class="form-control"
+                            <!-- <select v-model="inputs.size.id" name="sizeId" id="sizeId" class="form-control"
                                 :class="{ 'is-invalid': v$.inputs.sizeId.$error }">
                                 <option selected disabled value=""> ... </option>
                                 <option v-for="element in sizesList" :value="element.id"> {{ element.name }}</option>
 
-                            </select>
+                            </select> -->
                         </div>
                         <div class="form-group col-12 col-md-4">
                             <label for="aspectId">Aspect</label>
-                            <select v-model="inputs.aspect.id" name="aspectId" id="aspectId" class="form-control"
+                            <!-- <select v-model="inputs.aspect.id" name="aspectId" id="aspectId" class="form-control"
                                 :class="{ 'is-invalid': v$.inputs.aspectId.$error }">
                                 <option selected disabled value=""> ... </option>
                                 <option v-for="element in aspectsList" :value="element.id"> {{ element.name }}
                                 </option>
 
 
-                            </select>
+                            </select> -->
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="price">Price</label>
@@ -136,7 +136,7 @@ export default {
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary float-end col-md-3 col-12 mb-4">Create</button>
+                    <button type="submit" class="btn btn-primary float-end col-md-3 col-12 mb-4">Update</button>
 
 
 
