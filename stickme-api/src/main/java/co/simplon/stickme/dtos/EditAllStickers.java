@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public interface EditAllStickers {
 
+    Long getId();
+
     String getImageUrl();
 
     String getName();

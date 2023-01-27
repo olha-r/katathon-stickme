@@ -42,7 +42,10 @@ export default {
                             <td>
                                 <img :src="element.imageUrl" class="img-thumbnail" width="70" alt="Sticker image">
                             </td>
-                            <td class="pe-1">{{ element.name }}</td>
+                            <td class="pe-1"><router-link :to="`/sticker/${element.id}`"
+                                    class="text-decoration-none text-dark">{{
+                                        element.name
+                                    }}</router-link></td>
                             <td>{{ element.createdAt }}</td>
                             <td>
                                 <i class="bi bi-pencil-square"></i>

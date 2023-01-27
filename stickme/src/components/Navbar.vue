@@ -9,7 +9,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <router-link to="/" class="nav-link">Home</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/create-sticker" class="nav-link">Create sticker</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/edit-stickers" class="nav-link">Admin: Edit all sticker</router-link>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>

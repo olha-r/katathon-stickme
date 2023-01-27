@@ -29,7 +29,10 @@ export default {
                     <img :src="element.imageUrl" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">
-                            {{ element.name }}</h5>
+                            <router-link :to="`/sticker/${element.id}`" class="text-decoration-none text-dark">{{
+                                element.name
+                            }}</router-link>
+                        </h5>
                         <p class="card-text">{{ element.price }}</p>
                     </div>
                 </div>
