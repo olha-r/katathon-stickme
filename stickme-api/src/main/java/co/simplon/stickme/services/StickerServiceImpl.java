@@ -96,8 +96,13 @@ public class StickerServiceImpl implements StickerService {
     @Override
     public Optional<StickerDetailsView> getStickerById(
 	    Long id) {
-	// TODO Auto-generated method stub
+
 	return stickersRepo.findProjectedById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+	stickersRepo.deleteById(id);
     }
 
 }

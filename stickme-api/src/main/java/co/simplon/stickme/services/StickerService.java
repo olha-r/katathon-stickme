@@ -23,4 +23,6 @@ public interface StickerService {
 
     Optional<StickerDetailsView> getStickerById(Long id);
 
+    void delete(Long id);
+
 }
