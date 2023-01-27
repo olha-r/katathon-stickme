@@ -48,7 +48,11 @@ export default {
                                     }}</router-link></td>
                             <td>{{ element.createdAt }}</td>
                             <td>
-                                <i class="bi bi-pencil-square"></i>
+                                <router-link :to="`/sticker/update/${element.id}`"
+                                    class="text-decoration-none text-dark">
+                                    <i class="bi bi-pencil-square"></i>
+                                </router-link>
+
                             </td>
                             <td><i class="bi bi-trash3-fill"></i></td>
                         </tr>
