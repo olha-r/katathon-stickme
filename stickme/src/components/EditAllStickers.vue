@@ -2,10 +2,10 @@
 export default {
     data() {
         return {
+            id: '',
             stickersList: [],
-            imageUrl: '',
-            name: '',
-            createdAt: ''
+            index: ''
+
         }
     },
     methods: {
@@ -13,6 +13,17 @@ export default {
             const response = await fetch("http://localhost:8080/stickers/edit-all");
             const stickers = await response.json();
             this.stickersList = stickers;
+        }
+        ,
+        async deleteSticker(id, index) {
+            await fetch(`http://localhost:8080/stickers/${id}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }),
+                //remove sticker from stickers list
+                this.stickersList.splice(index, 1);
         }
     },
     mounted() {
@@ -38,7 +49,7 @@ export default {
                     </thead>
                     <tbody class="table-group-divider">
 
-                        <tr v-for="element in stickersList">
+                        <tr v-for="(element, index) in stickersList">
                             <td>
                                 <img :src="element.imageUrl" class="img-thumbnail" width="70" alt="Sticker image">
                             </td>
@@ -54,10 +65,10 @@ export default {
                                 </router-link>
 
                             </td>
-                            <td><i class="bi bi-trash3-fill"></i></td>
+                            <td>
+                                <i class="bi bi-trash3-fill" @click="deleteSticker(element.id, index)"></i>
+                            </td>
                         </tr>
-
-
                     </tbody>
                 </table>
             </div>

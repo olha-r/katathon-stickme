@@ -58,7 +58,6 @@ export default {
             await fetch('http://localhost:8080/stickers', {
                 method: 'PATCH',
                 headers: {
-                    'method': 'Patch',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(
