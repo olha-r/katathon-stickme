@@ -9,7 +9,14 @@ export default {
     data() {
         return {
             id: '',
-            inputs: {},
+            inputs: {
+                name: null,
+                description: null,
+                imageUrl: null,
+                sizeId: 0,
+                aspectId: 0,
+                price: null
+            },
             sizesList: [],
             aspectsList: [],
         }
@@ -30,12 +37,19 @@ export default {
 
     methods: {
         async submit() {
+            console.log(this.$route.params.id);
+            console.log(this.inputs);
             const result = await this.v$.$validate()
             if (result) {
                 this.sendSticker();
                 const toastEl = document.getElementById('toast');
                 const toast = new bootstrap.Toast(toastEl);
                 toast.show();
+            } else {
+                console.log(result);
+                console.log(this.v$.inputs.aspectId.$error);
+                console.log("n'est pas validé");
+
             }
         },
         async loadSticker() {
@@ -47,6 +61,7 @@ export default {
             const response = await fetch("http://localhost:8080/sizes");
             const elements = await response.json();
             this.sizesList = elements;
+            console.log(this.sizesList);
         },
         async loadAspects() {
             const response = await fetch("http://localhost:8080/aspects");
@@ -77,7 +92,6 @@ export default {
 </script>
 
 <template>
-
     <div class="countainer mx-2">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
@@ -89,7 +103,6 @@ export default {
                             <input v-model="inputs.name" name="name" type="text" class="form-control"
                                 :class="{ 'is-invalid': v$.inputs.name.$error }" id="name">
                         </div>
-
                         <div class="mb-3 col-12 col-md-6">
                             <label for="imageUrl" class="form-label">Image URL</label>
                             <input v-model="inputs.imageUrl" name="imageUrl" type="text" class="form-control"
@@ -101,28 +114,25 @@ export default {
                         <textarea v-model="inputs.description" name="description" class="form-control"
                             :class="{ 'is-invalid': v$.inputs.description.$error }" id="description"></textarea>
                     </div>
-
-
                     <div class="row">
                         <div class="form-group col-12 col-md-4">
                             <label for="sizeId">Size</label>
-                            <!-- <select v-model="inputs.size.id" name="sizeId" id="sizeId" class="form-control"
+                            <select name="sizeId" id="sizeId" class="form-control"
                                 :class="{ 'is-invalid': v$.inputs.sizeId.$error }">
-                                <option selected disabled value=""> ... </option>
-                                <option v-for="element in sizesList" :value="element.id"> {{ element.name }}</option>
-
-                            </select> -->
+                                <!-- <option selected value=""> {{ inputs.aspect.name }} </option> -->
+                                <option v-for="element in sizesList" :value="element.id"> {{ element.name }}
+                                </option>
+                            </select>
                         </div>
                         <div class="form-group col-12 col-md-4">
                             <label for="aspectId">Aspect</label>
-                            <!-- <select v-model="inputs.aspect.id" name="aspectId" id="aspectId" class="form-control"
+
+                            <select name="aspectId" id="aspectId" class="form-control"
                                 :class="{ 'is-invalid': v$.inputs.aspectId.$error }">
-                                <option selected disabled value=""> ... </option>
+                                <!-- <option selected value=""> {{ inputs.aspect.name }} </option> -->
                                 <option v-for="element in aspectsList" :value="element.id"> {{ element.name }}
                                 </option>
-
-
-                            </select> -->
+                            </select>
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="price">Price</label>
@@ -133,6 +143,8 @@ export default {
                             </div>
                         </div>
                     </div>
+
+
 
 
                     <button type="submit" class="btn btn-primary float-end col-md-3 col-12 mb-4">Update</button>
